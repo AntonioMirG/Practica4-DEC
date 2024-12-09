@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargow</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="img/Black_White_Simple_Monochrome_Initial_Name_Logo__1___1_-removebg-preview.png"
+                    alt="Logo de Cargow" class="logo">
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Publicar Viaje</a></li>
+                    <li><a href="#">Viajes Disponibles</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="user-menu">
+                <span class="user-name">Antonio</span>
+                <div class="desplegable">
+                    <div class="desplegable-content">
+                        <select>
+                            <option><a href="#">Mi Perfil</a></option>
+                            <option><a href="#">Configuración</a></option>
+                            <option><a href="#" onclick="cerrarSesion()">Cerrar Sesión</a></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h2>¿Publicar un viaje?</h2>
+        <form id="form-viaje" onsubmit="agregarViaje()">
+            <input type="text" id="origen" placeholder="Ciudad de origen" required>
+            <input type="text" id="destino" placeholder="Ciudad de destino" required>
+            <input type="time" id="hora" required>
+            <input type="number" id="precio" placeholder="Precio (€)" required>
+            <button type="submit">Agregar Viaje</button>
+        </form>
+        <h3>Viajes Disponibles</h3>
+        <div id="list">
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2024 Cargow. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="cargow.js"></script>
+</body>
+
+</html>

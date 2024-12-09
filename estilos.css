@@ -1,0 +1,199 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9fb;
+    color: #333;
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    background-color: rgb(238, 122, 70);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 200px;
+    margin-right: 10px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: white;
+}
+
+nav.menu {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 0px;
+}
+
+nav.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    min-width: 400px;
+}
+
+nav.menu ul li {
+    display: inline;
+}
+
+nav.menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+nav.menu ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.user-menu {
+    padding: 10px;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+h2,
+h3 {
+    color: rgb(238, 122, 70);
+}
+
+form {
+    margin: 20px auto;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+form input,
+form button {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: rgb(238, 122, 70);
+    color: #fff;
+    border: none;
+}
+
+form button:hover {
+    background-color: rgb(200, 100, 60);
+}
+
+#list {
+    margin-top: 20px;
+    text-align: left;
+    max-width: 1000px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.trip-card {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.trip-card h4 {
+    margin: 0;
+    color: rgb(238, 122, 70);
+    font-size: 1.2rem;
+}
+
+.trip-card p {
+    margin: 5px 0;
+    color: #555;
+    flex-grow: 1;
+}
+
+.delete-btn {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #d43f3f;
+}
+
+.reserve-btn {
+    background-color: rgb(66, 133, 244);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.reserve-btn:hover {
+    background-color: rgb(50, 116, 207);
+    transform: scale(1.05);
+}
+
+.reserve-btn.reservado {
+    background-color: #8BC34A;
+}
+
+.reserve-btn.reservado:hover {
+    background-color: #6B9E3B;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+}
