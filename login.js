@@ -28,10 +28,7 @@ function registrarUsuario() {
 }
 
 // Función para iniciar sesión
-function iniciarSesion(event) {
-    // Prevenir el comportamiento por defecto
-    event.preventDefault();
-
+function iniciarSesion() {
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
 
@@ -57,21 +54,6 @@ function iniciarSesion(event) {
     } else {
         alert("Correo o contraseña incorrectos.");
     }
-}
-
-// Función para verificar si el usuario está logueado
-function verificarSesion() {
-    let usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLogueado'));
-    
-    if (!usuarioLogueado) {
-        alert("Por favor, inicie sesión.");
-        window.location.href = "login.html"; // Redirigir al login si no está logueado
-    }
-}
-
-// Llamar a verificarSesion() cuando se cargue index.html
-if (window.location.pathname === '/index.html') {
-    verificarSesion();
 }
 
 // Función para cerrar sesión
