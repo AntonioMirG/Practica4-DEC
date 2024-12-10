@@ -1,12 +1,83 @@
-document.getElementById('login-form').addEventListener('submit', function (event) {
+// Función para registrar un nuevo usuario
+function registrarUsuario() {
+    const email = document.getElementById('signup-email').value;
+    const password = document.getElementById('signup-password').value;
+
+    let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+    // Verificar si el correo ya está registrado
+    let usuarioExistente = false;
+    for (let i = 0; i < usuarios.length; i++) {
+        if (usuarios[i].email === email) {
+            usuarioExistente = true;
+            break;
+        }
+    }
+
+    if (usuarioExistente) {
+        alert("Este correo ya está registrado. Intente con otro.");
+        return;
+    }
+
+    // Registrar el nuevo usuario
+    usuarios.push({ email, password });
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    alert("Registro exitoso. Ahora puedes iniciar sesión.");
+    document.getElementById('signup-form').reset();
+    window.location.href = "login.html"; // Redirigir al login
+}
+
+// Función para iniciar sesión
+function iniciarSesion(event) {
+    // Prevenir el comportamiento por defecto
     event.preventDefault();
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
 
-    if (email === "antoniomirperez2004@gmail.com" && password === "1234") {
+    let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+    // Verificar credenciales
+    let usuarioValido = false;
+    for (let i = 0; i < usuarios.length; i++) {
+        if (usuarios[i].email === email && usuarios[i].password === password) {
+            usuarioValido = true;
+            break;
+        }
+    }
+
+    if (usuarioValido) {
+        alert("Inicio de sesión exitoso.");
+        
+        // Guardar la sesión del usuario en localStorage
+        localStorage.setItem('usuarioLogueado', JSON.stringify({ email }));
+        
+        // Redirigir a la página principal (index.html)
         window.location.href = "index.html";
     } else {
         alert("Correo o contraseña incorrectos.");
     }
-});
+}
+
+// Función para verificar si el usuario está logueado
+function verificarSesion() {
+    let usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLogueado'));
+    
+    if (!usuarioLogueado) {
+        alert("Por favor, inicie sesión.");
+        window.location.href = "login.html"; // Redirigir al login si no está logueado
+    }
+}
+
+// Llamar a verificarSesion() cuando se cargue index.html
+if (window.location.pathname === '/index.html') {
+    verificarSesion();
+}
+
+// Función para cerrar sesión
+function cerrarSesion() {
+    // Eliminar la información de sesión del usuario
+    localStorage.removeItem('usuarioLogueado');
+    alert("Has cerrado sesión.");
+    window.location.href = "login.html"; // Redirigir al login después de cerrar sesión
+}
