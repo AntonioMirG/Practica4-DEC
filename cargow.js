@@ -56,20 +56,9 @@ function mostrarViajes() {
 
 // Función para comparar si una subcadena existe dentro de una cadena
 function compararSubcadena(cadena, subcadena) {
-    for (let i = 0; i <= cadena.length - subcadena.length; i++) {
-        let coincide = true;
-        for (let j = 0; j < subcadena.length; j++) {
-            if (cadena[i + j] !== subcadena[j]) {
-                coincide = false;
-                break;
-            }
-        }
-        if (coincide) {
-            return true;
-        }
-    }
-    return false;
+    return cadena.includes(subcadena);
 }
+
 
 // Función para filtrar viajes por destino
 function filtrarViajes() {
@@ -91,19 +80,11 @@ function eliminarViaje(index) {
 // Función para reservar o desreservar un viaje
 function reservarViaje(index) {
     let viajesGuardados = JSON.parse(localStorage.getItem("viajes")) || [];
-
-    // Si el viaje no tiene la propiedad 'reservado', la añadimos al modificar su estado
-    if (!viajesGuardados[index].hasOwnProperty('reservado')) {
-        viajesGuardados[index].reservado = false; // Agregamos la propiedad reservado si no existe
-    }
-
-    // Cambiar el estado de 'reservado'
     viajesGuardados[index].reservado = !viajesGuardados[index].reservado;
-
     localStorage.setItem("viajes", JSON.stringify(viajesGuardados));
-
     mostrarViajes();
 }
+
 
 // Función para cerrar sesión
 function cerrarSesion() {
