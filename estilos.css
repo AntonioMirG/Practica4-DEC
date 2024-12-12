@@ -169,7 +169,6 @@ form button:hover {
     max-width: 1000px;
     margin: 20px auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     text-align: left;
 }
@@ -227,19 +226,6 @@ form button:hover {
     position: absolute;
     bottom: 10px;
     right: 10px;
-}
-
-.reserve-btn:hover {
-    background-color: rgb(50, 116, 207);
-    transform: scale(1.05);
-}
-
-.reserve-btn.reservado {
-    background-color: #8BC34A;
-}
-
-.reserve-btn.reservado:hover {
-    background-color: #6B9E3B;
 }
 
 /* Footer */
